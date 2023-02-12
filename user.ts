@@ -1,4 +1,4 @@
-import { RestRequest, RestResponse } from "./rest";
+import type { RestRequest, RestResponse } from './rest';
 
 export interface UserCreateRequest extends RestRequest {
     tag: string;
