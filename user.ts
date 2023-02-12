@@ -1,18 +1,23 @@
-export interface RestBody {}
+import { RestRequest, RestResponse } from "./rest";
 
-export interface RestRequest {}
-
-export enum RestStatus {
-    UNKNOWN           = 'UNKNOWN',
-    SUCCESS           = 'SUCCESS',
-    FAILURE           = 'FAILURE',
-    
-    SERVER_ERROR      = 'SERVER_ERROR',
-
-    MALFORMED_REQUEST = 'MALFORMED_REQUEST',
-    INVALID_REQUEST   = 'INVALID_REQUEST'
+export interface UserCreateRequest extends RestRequest {
+    tag: string;
+    password: string;
 }
 
-export interface RestResponse extends RestBody {
-    status: RestStatus;
+export interface UserCreateResponse extends RestResponse {}
+
+export interface UserLogInRequest extends RestRequest {
+    tag: string;
+    password: string;
 }
+
+export interface UserLogInResponse extends RestResponse {
+    session?: string;
+}
+
+export interface UserLogOutRequest extends RestRequest {
+    session: string;
+}
+
+export interface UserLogOutResponse extends RestResponse {}
